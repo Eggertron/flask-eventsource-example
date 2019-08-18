@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Hello from Flask</title>
+<h2>Stuff from Flask</h2>
+<div id="this-div">
+</div>
+
+<script>
+    // Client-side Javascript in the HTML
+    var targetContainer = document.getElementById("this-div");
+    var eventSource = new EventSource("/stream");
+
+    eventSource.onmessage = function(e) {
+	    targetContainer.innerHTML += e.data + "<br>";
+    };
+</script>
+
